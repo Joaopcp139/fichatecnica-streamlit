@@ -81,3 +81,32 @@ if uploaded_pdf and st.button("🔄 Gerar ficha técnica"):
 
     except Exception as e:
         st.error(f"❌ Erro ao processar a OP: {e}")
+        # Preenchimento automático básico (exemplo para alguns campos)
+try:
+    ws["D6"] = dados["cliente"]
+    ws["F6"] = dados["codigo_produto"]
+    ws["D7"] = dados["produto"]
+    ws["B13"] = dados["largura"]
+    ws["D13"] = dados["passo"]
+    ws["F13"] = dados["espessura"]
+except:
+    pass  # Ignora se a célula não existir ou der erro
+por isso aqui:
+python
+Copiar código
+from datetime import datetime
+
+# Preenchimento automático básico (exemplo para alguns campos)
+try:
+    ws["D6"] = dados["cliente"]
+    ws["F6"] = dados["codigo_produto"]
+    ws["D7"] = dados["produto"]
+    ws["B13"] = dados["largura"]
+    ws["D13"] = dados["passo"]
+    ws["F13"] = dados["espessura"]
+
+    # 🗓️ Insere a data do dia na célula L2
+    hoje = datetime.today().strftime("%d/%m/%Y")
+    ws["L2"] = hoje
+except:
+    pass  # Ignora se der erro
