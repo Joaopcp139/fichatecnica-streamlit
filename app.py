@@ -70,6 +70,12 @@ if uploaded_pdf and st.button("🔄 Gerar ficha técnica"):
         wb.save(output)
         output.seek(0)
 
-        st.success("✅ Ficha técnica gerada com sucesso!")
-        st.download_button("📥 Baixar ficha preenchida", data=output,
-                           file_name="ficha_tecnica_preenchida.xlsx",
+       st.success("✅ Ficha técnica gerada com sucesso!")
+
+st.download_button(
+    label="📥 Baixar ficha preenchida",
+    data=output,
+    file_name="ficha_tecnica_preenchida.xlsx",
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+)
+
